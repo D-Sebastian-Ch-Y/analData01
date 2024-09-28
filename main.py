@@ -23,4 +23,4 @@ graf_ac(fr(nDep), fr(nEco), fr(nEnt), fr(nPol), fr(nSal), fr(nTec))
 # entretenimiento: f r
 # politica: d i
 # salud: c u
-# tecnologia: s t  [a]
+# tecnologia: s t 
