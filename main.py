@@ -19,7 +19,7 @@ nTec = pl(ld('noticias_tecnologia.txt'))
 graf_ac(fr(nDep), fr(nEco), fr(nEnt), fr(nPol), fr(nSal), fr(nTec))
 
 # deportes: a l
-# economia: p
+# economia: p s
 # entretenimiento: f r
 # politica: d i
 # salud: c u
