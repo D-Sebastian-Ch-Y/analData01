@@ -48,7 +48,7 @@ print("-----------------------------------------------")
 
 comp_lista(notis_eco, nPol, 0.005)
 
-# data para probar
+# Data para evaluar
 dataTest = ld("data_to_test.txt")
 section = ""
 dataBySection = dict()
