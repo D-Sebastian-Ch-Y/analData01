@@ -50,3 +50,32 @@ def graficos_acumulados(frecuencias_relativas_1,frecuencias_relativas_2,frecuenc
     # Mostrar el gráfico
     plt.tight_layout()  # Ajustar el diseño para que no se solapen las etiquetas
     plt.show()
+
+def graficar2(frecuencias_relativas_1,frecuencias_relativas_2):
+    # Unir las claves
+    categorias = sorted(set(frecuencias_relativas_1.keys()).union(set(frecuencias_relativas_2.keys())))
+
+    # Crear listas de frecuencias alineadas
+    valores_1 = [frecuencias_relativas_1.get(cat, 0) for cat in categorias]
+    valores_2 = [frecuencias_relativas_2.get(cat, 0) for cat in categorias]
+
+    # Configuración para el gráfico
+    x = np.arange(len(categorias))  # la posición de las categorías
+    ancho = 0.35  # ancho de las barras
+
+    # Crear el gráfico de barras agrupadas
+    fig, ax = plt.subplots()
+    barras_1 = ax.bar(x - ancho/2, valores_1, ancho, label='Conjunto 1')
+    barras_2 = ax.bar(x + ancho/2, valores_2, ancho, label='Conjunto 2')
+
+    # Añadir título y etiquetas
+    ax.set_title('Comparación de Frecuencias Relativas')
+    ax.set_xlabel('Categorías')
+    ax.set_ylabel('Frecuencias Relativas')
+    ax.set_xticks(x)
+    ax.set_xticklabels(categorias)
+    ax.legend()
+
+    # Mostrar el gráfico
+    plt.show()
+        
