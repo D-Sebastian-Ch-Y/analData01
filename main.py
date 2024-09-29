@@ -19,7 +19,7 @@ nSal = pl(ld('noticias_salud.txt'))
 nTec = pl(ld('noticias_tecnologia.txt'))
 
 # Verificar las letras con mejor desempeño
-#graf_ac(fr(nDep), fr(nEco), fr(nEnt), fr(nPol), fr(nSal), fr(nTec))
+# graf_ac(fr(nDep), fr(nEco), fr(nEnt), fr(nPol), fr(nSal), fr(nTec))
 
 # deportes: a l
 # economia: p s
@@ -47,3 +47,16 @@ def comp_lista(noticias, datos, umbral):
 print("-----------------------------------------------")
 
 comp_lista(notis_eco, nPol, 0.005)
+
+# data para probar
+dataTest = ld("data_to_test.txt")
+section = ""
+dataBySection = dict()
+for linea in dataTest:
+    if linea[0] == '*':
+        section = linea[1:]
+        dataBySection[section] = []
+    else:
+        dataBySection[section].append(pt(linea))
+
+print(dataBySection)
