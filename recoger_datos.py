@@ -98,17 +98,16 @@ def ATV_data(url, sec):
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        match sec:
-            case "salud":
-                titles = soup.find_all('h3', class_='CardUei_title__yMyUo')
-            case "deportes":
-                titles = soup.find_all('h3', class_='CardPrimary_tinu__MQM3J')
-            case "entretenimiento":
-                titles = soup.find_all('a', class_='font-bold text-xl')
-            case "tecnologia":
-                titles = soup.find_all('h3', class_='CardUei_title__yMyUo')
-            case _:
-                print("Sección no disponible en AmericaTV")
+        if sec == "salud":
+            titles = soup.find_all('h3', class_='CardUei_title__yMyUo')
+        elif sec == "deportes":
+            titles = soup.find_all('h3', class_='CardPrimary_tinu__MQM3J')
+        elif sec == "entretenimiento":
+            titles = soup.find_all('a', class_='font-bold text-xl')
+        elif sec == "tecnologia":
+            titles = soup.find_all('h3', class_='CardUei_title__yMyUo')
+        else:
+            print("Sección no disponible en AmericaTV")
 
         for title in titles:
             articulos.append(title.get_text(strip=True))
