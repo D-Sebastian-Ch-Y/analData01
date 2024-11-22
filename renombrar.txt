@@ -1,0 +1,27 @@
+import os
+import cv2
+from pathlib import Path
+import matplotlib.pyplot as plt
+
+carpeta = Path("Catcha00/Catcha4")
+
+archivo = [arc for arc in carpeta.iterdir()][0]
+if archivo.is_file():
+    print("Archivo encontrado:", archivo)
+    image = cv2.imread(archivo)
+    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    plt.axis('off')
+    plt.show()
+    name = input()
+    print(name)
+    output_path = "Catcha00/Catcha04/" + name + ".png"
+    cv2.imwrite(output_path, image)
+
+    ruta_archivo = archivo
+
+    # Verificar si el archivo existe antes de eliminarlo
+    if os.path.exists(archivo):
+        os.remove(archivo)
+        print(f"Archivo eliminado: {archivo}")
+    else:
+        print(f"El archivo no existe: {archivo}")
